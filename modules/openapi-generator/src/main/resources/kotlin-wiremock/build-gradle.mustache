@@ -1,0 +1,31 @@
+group '{{groupId}}'
+version '{{artifactVersion}}'
+
+buildscript {
+    ext.kotlin_version  = '1.7.21'
+    ext.wiremock_version = '2.27.2'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    api "com.github.tomakehurst:wiremock:$wiremock_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}

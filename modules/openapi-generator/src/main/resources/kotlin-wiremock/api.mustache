@@ -1,0 +1,25 @@
+package {{apiPackage}}
+
+{{#imports}}import {{import}}
+{{/imports}}
+
+{{#operations}}
+class {{classname}}Stub(baseUrl: String = "localhost", port: Int = 8080) : Stub(baseUrl, port) {
+    {{#operation}}
+    {{#isDeprecated}}
+    @Deprecated(message = "This operation has been deprecated")
+    {{/isDeprecated}}
+    fun {{operationId}}(): {{operationIdCamelCase}}StubBuilder {
+        val
+    }
+
+    {{#isDeprecated}}
+    @Deprecated(message = "This operation has been deprecated")
+    {{/isDeprecated}}
+    class {{operationIdCamelCase}}StubBuilder(wiremock: WireMock, stub: MappingBuilder) : StubBuilder(wiremock, stub) {
+
+    }
+
+    {{/operation}}
+}
+{{/operations}}

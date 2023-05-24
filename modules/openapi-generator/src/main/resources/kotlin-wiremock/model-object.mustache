@@ -1,0 +1,10 @@
+package {{modelPackage}}
+
+{{#imports}}import {{import}}
+{{/imports}}
+
+data class {{classname}}(
+    {{#vars}}
+    @Json(name = "{{name}}) var {{name}}: {{#isArray}}{{containerType}}<{{dataType}}>{{/isArray}}{{^isArray}}{{dataType}}{{/isArray}}{{^required}}?{{/required}},
+    {{/vars}}
+)
